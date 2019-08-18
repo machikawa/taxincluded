@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,84 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ConsumptionTaxCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dot-hQ-stQ" userLabel="Price">
+                                <rect key="frame" x="130" y="394" width="154" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-UN-82t" userLabel="CalcBtn">
+                                <rect key="frame" x="120" y="464" width="174" height="30"/>
+                                <state key="normal" title="税金計算！"/>
+                                <connections>
+                                    <segue destination="yOy-B6-GYX" kind="show" id="WMq-3W-Jdy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dot-hQ-stQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="350" id="3fo-oG-eJS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cCp-UN-82t" secondAttribute="trailing" constant="120" id="Adk-vd-JTM"/>
+                            <constraint firstItem="Dot-hQ-stQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="CMO-EI-Ct8"/>
+                            <constraint firstItem="cCp-UN-82t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="W4E-kX-v8l"/>
+                            <constraint firstItem="cCp-UN-82t" firstAttribute="top" secondItem="Dot-hQ-stQ" secondAttribute="bottom" constant="40" id="uSV-oT-9ll"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dot-hQ-stQ" secondAttribute="trailing" constant="130" id="vLP-Wd-dN5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="inputPrice" destination="Dot-hQ-stQ" id="m0h-xJ-glv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="CWq-tP-ghC">
+            <objects>
+                <viewController id="yOy-B6-GYX" customClass="ResultViewController" customModule="ConsumptionTaxCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FB2-Vi-Twv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgA-S4-IY1" userLabel="Result">
+                                <rect key="frame" x="100" y="364" width="214" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vu4-yZ-545" userLabel="BackButton">
+                                <rect key="frame" x="180" y="413" width="54" height="30"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <segue destination="U2p-dY-gla" kind="unwind" unwindAction="unwind:" id="O98-Q2-zmb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vu4-yZ-545" firstAttribute="top" secondItem="jgA-S4-IY1" secondAttribute="bottom" constant="20" id="3Ke-Kh-cDm"/>
+                            <constraint firstItem="jgA-S4-IY1" firstAttribute="top" secondItem="uKB-fd-E4o" secondAttribute="top" constant="320" id="O6Y-19-IXB"/>
+                            <constraint firstItem="jgA-S4-IY1" firstAttribute="leading" secondItem="uKB-fd-E4o" secondAttribute="leading" constant="100" id="gGW-cZ-oE3"/>
+                            <constraint firstItem="uKB-fd-E4o" firstAttribute="trailing" secondItem="vu4-yZ-545" secondAttribute="trailing" constant="180" id="igE-Y2-dJy"/>
+                            <constraint firstItem="uKB-fd-E4o" firstAttribute="trailing" secondItem="jgA-S4-IY1" secondAttribute="trailing" constant="100" id="l20-bZ-OEd"/>
+                            <constraint firstItem="vu4-yZ-545" firstAttribute="leading" secondItem="uKB-fd-E4o" secondAttribute="leading" constant="180" id="xSc-yv-Ejt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uKB-fd-E4o"/>
+                    </view>
+                    <connections>
+                        <outlet property="labelA" destination="jgA-S4-IY1" id="eDi-q4-5Ur"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gjh-PQ-VPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="U2p-dY-gla" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1437.68115942029" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>
